@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   resources :skills
   resources :categories
   resource :sessons
- 
-  root to: "users#new"
+  
+
+  get '/github' => 'github#github'
+  get '/github/repos' => 'github#repos', as: :repos
+  get '/' => 'users#index'
   get "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy", :as => :signout
  
