@@ -3,14 +3,18 @@ Rails.application.routes.draw do
   resources :users
   resources :skills
   resources :categories
-  resource :sessons
-  
+  resources :users
+  resource :session
+  #resources :githubs
+  #resource :github
 
-  get '/github' => 'github#github'
-  get '/github/repos' => 'github#repos', as: :repos
-  get '/' => 'users#index'
-  get "/auth/:provider/callback" => "sessions#create"
-  get "/signout" => "sessions#destroy", :as => :signout
+  get '/github' => 'users#github'
+  get '/uers/repos' => 'users#repos', as: :repos
+  #get '/' => 'users#index'
+  get "/auth/:provider/callback" => "session#create"
+
+  root 'users#index'
+  #get "/github/repos" => "github#destroy", :as => :github
  
 end
 

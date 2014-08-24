@@ -1,4 +1,4 @@
-class GithubController < ApplicationController
+class GithubsController < ApplicationController
   def github
     # Find the access token
     res = HTTParty.post('https://github.com/login/oauth/access_token',
@@ -19,5 +19,10 @@ class GithubController < ApplicationController
     @user_info = HTTParty.get(url, headers: headers)
     # Based on the URLs returned, let's find out about the repos
     @repos = HTTParty.get(@user_info["repos_url"], headers: headers)
+  end
+
+   def destroy
+    reset_session
+    redirect_to root_url, :notice => "Signed out!"
   end
 end

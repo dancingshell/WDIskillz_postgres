@@ -1,0 +1,15 @@
+<h1>Welcome <%= @user["login"] %></h1>
+<table>
+  <tr><td class="topColumn"><%= image_tag @user["avatar_url"] %></td>
+  <td>You social butterfly -- you've got <%= @user["followers"] %> people following you, and in return are following <%= @user["following"] %>.  Here's your <%= @user["public_repos"] %> repositories:<br />
+
+    <% @repos.each do |r| %>
+      <h3><%= link_to r["name"], r["html_url"] %></h3>
+      <%= r["description"] %><br />
+      <b>Clone this <%= r["language"] %> app:</b>
+      <pre>git clone <%= r["clone_url"] %></pre>
+    <% end %>
+
+  </td></tr>
+<%= link_to "new skill", new_skill_path %>
+<%= link_to "Log out", session_path, method: :delete %>
