@@ -12,8 +12,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    
-  end
+    user = User.new(params.require(:user).permit(:email, :first_name))
+      if user.save
+        redirect_to users_path
+      end
+    end
 
   def edit
   end
@@ -25,6 +28,7 @@ class UsersController < ApplicationController
   end
 
   def github
+
     # Find the access token
     res = HTTParty.post('https://github.com/login/oauth/access_token',
       {body:{client_id: ENV["GH_CLIENT_ID"],
@@ -36,6 +40,7 @@ class UsersController < ApplicationController
     redirect_to repos_path(acc_token: res.parsed_response["access_token"])
   end
   def repos
+    @user_new = User.new
     # Show info about this user
     headers = {"User-Agent" => "SKILLZ",
       "Authorization" => "token #{params[:acc_token]}"}

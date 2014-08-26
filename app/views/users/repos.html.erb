@@ -13,3 +13,13 @@
   </td></tr>
 <%= link_to "new skill", new_skill_path %>
 <%= link_to "Log out", session_path, method: :delete %>
+
+
+        
+        <% form_for @user_new do |f| %>
+            <%= f.text_field :email, placeholder: "Whats you email?" %>
+            <%= f.hidden_field :first_name, :value => @user["login"]  %>
+            
+            <%= f.submit  "Confirm" %>
+         
+          <% end %>
