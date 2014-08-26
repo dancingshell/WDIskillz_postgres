@@ -12,6 +12,8 @@ class GithubsController < ApplicationController
   end
 
   def repos
+
+    @user = User.new
     # Show info about this user
     headers = {"User-Agent" => "SKILLZ",
       "Authorization" => "token #{params[:acc_token]}"}
