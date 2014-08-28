@@ -12,9 +12,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(params.require(:user).permit(:email, :first_name))
+    user = User.new(params.require(:user).permit(:name, :github_name, :avatar_url, :followers, :following, :public_repos))
       if user.save
-        redirect_to users_path
+        redirect_to new_session_path
       end
     end
 

@@ -2,10 +2,16 @@
 
 one:
   name: MyString
-  email: MyString
-  password_digest: MyString
+  github_name: MyString
+  avatar_url: MyString
+  followers: MyString
+  following: MyString
+  public_repos: MyString
 
 two:
   name: MyString
-  email: MyString
-  password_digest: MyString
+  github_name: MyString
+  avatar_url: MyString
+  followers: MyString
+  following: MyString
+  public_repos: MyString
