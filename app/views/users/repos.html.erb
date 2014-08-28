@@ -12,14 +12,17 @@
 
   </td></tr>
 <%= link_to "new skill", new_skill_path %>
-<%= link_to "Log out", session_path, method: :delete %>
+<%= link_to "Log out", new_session_path, method: :delete %>
 
 
         
-        <% form_for @user_new do |f| %>
-            <%= f.text_field :email, placeholder: "Whats you email?" %>
-            <%= f.hidden_field :first_name, :value => @user["login"]  %>
-            
+        <%= form_for @user_new do |f| %>
+            <%= f.text_field :name, placeholder: "What's your first name?" %>
+            <%= f.hidden_field :github_name, :value => @user["login"]  %>
+            <%= f.hidden_field :avatar_url, :value => @user["avatar_url"]  %>
+            <%= f.hidden_field :followers, :value => @user["followers"]  %>
+            <%= f.hidden_field :following, :value => @user["following"]  %>
+         
             <%= f.submit  "Confirm" %>
          
           <% end %>

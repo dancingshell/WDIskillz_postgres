@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :skills
   resources :categories
   resources :users
-  resource :session
+  resources :sessions
   #resources :githubs
   #resource :github
 

@@ -1,0 +1,22 @@
+<header id="top" class="header">
+        <div class="text-vertical-center">
+          <div class="col-sm-4 col-sm-offset-4">
+            <h1>Log-In</h1>
+            <%= form_for @user,{url: session_path} do |f| %>
+
+              <div class="form-group">
+                  <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.submit "Log-In!", class: 'btn btn-primary btn-large' %>
+              </div>
+
+            <% end %>
+          </div>
+        </div>
+    </header>
